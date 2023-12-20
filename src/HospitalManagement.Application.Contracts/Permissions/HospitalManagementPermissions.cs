@@ -13,6 +13,8 @@ public static class HospitalManagementPermissions
         public const string Edit = Default + ".Edit";
         public const string Delete = Default + ".Delete";
 
+     
+
 
     }
 }

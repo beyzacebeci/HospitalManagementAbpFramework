@@ -35,7 +35,8 @@ public class HospitalManagementMenuContributor : IMenuContributor
                 order: 0
             )
         );
-                context.Menu.Items.Insert(
+                
+        context.Menu.Items.Insert(
             1,
             new ApplicationMenuItem(
                 HospitalManagementMenus.Hospitals,
@@ -45,7 +46,8 @@ public class HospitalManagementMenuContributor : IMenuContributor
                 order: 1
             ).RequirePermissions(HospitalManagementPermissions.Hospitals.Default)
         );
-               context.Menu.Items.Insert(
+               
+        context.Menu.Items.Insert(
             2,
             new ApplicationMenuItem(
                 HospitalManagementMenus.Doctors,
@@ -55,6 +57,17 @@ public class HospitalManagementMenuContributor : IMenuContributor
                 order: 2
             ).RequirePermissions(HospitalManagementPermissions.Hospitals.Default)
         );
+                
+        context.Menu.Items.Insert(
+           3,
+           new ApplicationMenuItem(
+               HospitalManagementMenus.Doctors,
+               l["Menu:Appointment"],
+               "/Appointments",
+               icon: "fas fa-user-md",
+               order: 3
+           ).RequirePermissions(HospitalManagementPermissions.Hospitals.Default)
+       );
 
         if (MultiTenancyConsts.IsEnabled)
         {

@@ -15,6 +15,9 @@ public class HospitalManagementPermissionDefinitionProvider : PermissionDefiniti
         hospitalsPermission.AddChild(HospitalManagementPermissions.Hospitals.Edit, L("Permission:Hospitals.Edit"));
         hospitalsPermission.AddChild(HospitalManagementPermissions.Hospitals.Delete, L("Permission:Hospitals.Delete"));
 
+       
+
+
     }
 
     private static LocalizableString L(string name)
