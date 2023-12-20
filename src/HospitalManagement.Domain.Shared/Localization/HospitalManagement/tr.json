@@ -1,0 +1,15 @@
+{
+  "culture": "tr",
+    "texts": {
+        "Menu:Home": "Ana sayfa",
+        "Welcome": "Hoşgeldiniz",
+        "LongWelcomeMessage": "Uygulamaya hoşgeldiniz. Giriş yapmak için tıklayınız",
+        "Menu:Hospital": "Hastaneler",
+        "Menu:Doctor": "Doktorlar",
+        "Permission:HospitalManagement": "Hastane Yönetimi",
+        "Permission:Hospitals": "Hastaneler",
+        "Permission:Hospitals.Create": "Yeni hastane olluşturma",
+        "Permission:Hospitals.Edit": "Hastaneleri güncelleme",
+        "Permission:Hospitals.Delete": "Hastaneleri silme"
+    }
+}

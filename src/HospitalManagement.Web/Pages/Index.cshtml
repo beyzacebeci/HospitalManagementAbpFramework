@@ -1,0 +1,34 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using HospitalManagement.Localization
+@using Volo.Abp.Users
+@model HospitalManagement.Web.Pages.IndexModel
+@inject IHtmlLocalizer<HospitalManagementResource> L
+@inject ICurrentUser CurrentUser
+@section styles {
+<abp-style src="/Pages/Index.css" />
+}
+@section scripts {
+<abp-script src="/Pages/Index.js" />
+}
+
+<div class="home-container">
+    <h1>@L["Welcome"]</h1>
+
+    @if (!CurrentUser.IsAuthenticated)
+    {
+
+        <p class="lead px-lg-5 mx-lg-5">@L["LongWelcomeMessage"]</p>
+        <a abp-button="Primary" href="~/Account/Login"><i class="fa fa-sign-in"></i> @L["Login"]</a>
+
+    }
+    @if (CurrentUser.IsAuthenticated)
+    {
+        <a abp-button="Danger" href="/Hospitals" class="go-hospital-card mt-3">
+
+            <h5><i class="fas fa-plus-square me-3"></i>Hastane randevusu al</h5>
+            <p>Hastanede bulunan kliniklerden randevu alabilirsiniz. </p>
+
+        </a>
+    }
+</div>

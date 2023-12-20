@@ -1,0 +1,18 @@
+body {
+    
+}
+.home-container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.go-hospital-card {
+    width: 450px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -1,0 +1,16 @@
+{
+  "culture": "en",
+    "texts": {
+        "Menu:Home": "Home",
+        "Welcome": "Welcome",
+        "LongWelcomeMessage": "Welcome. Click to login",
+        "Menu:Hospital": "Hospital",
+        "Menu:Doctor": "Doctors",
+        "Permission:HospitalManagement": "Hospital Management",
+        "Permission:Hospitals": "Hospitals",
+        "Permission:Hospitals.Create": "Creating new hospital",
+        "Permission:Hospitals.Edit": "Editing the hospitals",
+        "Permission:Hospitals.Delete": "Deleting the hospitals"
+
+    }
+}
