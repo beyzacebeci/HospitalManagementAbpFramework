@@ -38,11 +38,11 @@ namespace HospitalManagement.Web.Pages.Hospitals
             var hospitalDto = await _hospitalAppService.GetAsync(Id);
             EditingHospital = ObjectMapper.Map<HospitalDto, CreateUpdateHospitalDto>(hospitalDto);
 
-            //get all categories
+            //get all departments
             var departmentLookupDto = await _hospitalAppService.GetDepartmentLookupAsync();
             Departments = ObjectMapper.Map<List<DepartmentLookupDto>, List<DepartmentViewModel>>(departmentLookupDto.Items.ToList());
 
-            //mark as Selected for Categories in the book
+            //mark as Selected for Departments in the hospital
             if (EditingHospital.DepartmentNames != null && EditingHospital.DepartmentNames.Any())
             {
                 Departments
@@ -54,13 +54,13 @@ namespace HospitalManagement.Web.Pages.Hospitals
 
         public async Task<IActionResult> OnPostAsync()
         {
-            ValidateModel();
+            //ValidateModel();
 
             var selectedDepartments = Departments.Where(x => x.IsSelected).ToList();
             if (selectedDepartments.Any())
             {
-                var categoryNames = selectedDepartments.Select(x => x.Name).ToArray();
-                EditingHospital.DepartmentNames = categoryNames;
+                var departmentNames = selectedDepartments.Select(x => x.Name).ToArray();
+                EditingHospital.DepartmentNames = departmentNames;
             }
 
             await _hospitalAppService.UpdateAsync(Id, EditingHospital);

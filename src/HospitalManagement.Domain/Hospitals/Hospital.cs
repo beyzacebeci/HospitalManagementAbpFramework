@@ -10,9 +10,7 @@ namespace HospitalManagement.Hospitals
 	public class Hospital : FullAuditedAggregateRoot<Guid>
 	{
 		public string Name { get; private set; }
-
-		public ICollection<HospitalDepartment> Departments { get; private set; }
-
+		public ICollection<HospitalDepartment> HospitalDepartments { get; private set; }
         private Hospital()
 		{
 		}
@@ -21,10 +19,9 @@ namespace HospitalManagement.Hospitals
 			: base(id)
 		{
 			SetName(name);
+            HospitalDepartments = new Collection<HospitalDepartment>();
 
-			Departments = new Collection<HospitalDepartment>();
-
-		}
+        }
 
 		public void SetName(string name)
 		{
@@ -40,7 +37,7 @@ namespace HospitalManagement.Hospitals
 				return;
 			}
 
-			Departments.Add(new HospitalDepartment(hospitalId: Id, departmentId));
+			HospitalDepartments.Add(new HospitalDepartment(hospitalId: Id, departmentId));
 		}
 
         public void RemoveDepartment(Guid departmentId)
@@ -52,24 +49,24 @@ namespace HospitalManagement.Hospitals
 				return;
 			}
 
-			Departments.RemoveAll(x => x.DepartmentId == departmentId);
+			HospitalDepartments.RemoveAll(x => x.DepartmentId == departmentId);
 		}
 
 		public void RemoveAllDepartmentsExceptGivenIds(List<Guid> departmentIds)
 		{
 			Check.NotNullOrEmpty(departmentIds, nameof(departmentIds));
 
-			Departments.RemoveAll(x => !departmentIds.Contains(x.DepartmentId));
+			HospitalDepartments.RemoveAll(x => !departmentIds.Contains(x.DepartmentId));
 		}
 
 		public void RemoveAllDepartments()
 		{
-			Departments.RemoveAll(x => x.HospitalId == Id);
+			HospitalDepartments.RemoveAll(x => x.HospitalId == Id);
 		}
 
 		private bool IsInDepartment(Guid departmentId)
 		{
-			return Departments.Any(x => x.DepartmentId == departmentId);
+			return HospitalDepartments.Any(x => x.DepartmentId == departmentId);
 		}
 
     }

@@ -20,7 +20,6 @@ public class HospitalManagementApplicationAutoMapperProfile : Profile
         CreateMap<HospitalWithDetails, HospitalDto>();
         CreateMap<Hospital, HospitalDto>();
 
-        CreateMap<DepartmentWithDetails, DepartmentDto>();
 
     }
 }

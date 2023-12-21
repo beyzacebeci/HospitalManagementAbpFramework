@@ -10,7 +10,8 @@
         "Permission:Hospitals": "Hospitals",
         "Permission:Hospitals.Create": "Creating new hospital",
         "Permission:Hospitals.Edit": "Editing the hospitals",
-        "Permission:Hospitals.Delete": "Deleting the hospitals"
+        "Permission:Hospitals.Delete": "Deleting the hospitals",
+        "Menu:Appointment": "Appointment"
 
     }
 }

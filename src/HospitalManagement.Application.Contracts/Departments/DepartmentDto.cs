@@ -8,7 +8,7 @@ namespace HospitalManagement.Departments
     public class DepartmentDto : EntityDto<Guid>
     {
         public string Name {get;set;}
-        public string[] DoctorNames { get; set; }
+
 
     }
 }

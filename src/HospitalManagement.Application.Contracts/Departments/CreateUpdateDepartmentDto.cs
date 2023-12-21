@@ -7,6 +7,5 @@ namespace HospitalManagement.Departments
     public class CreateUpdateDepartmentDto
     {
         public string Name{get;set;}
-        public string[] DoctorNames { get; set; }
-    }
+}
 }

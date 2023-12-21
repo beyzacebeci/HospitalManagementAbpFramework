@@ -10,7 +10,6 @@ namespace HospitalManagement.Hospitals
     {
         public string Name{get;set;}
 
-        [CanBeNull]
         public string[] DepartmentNames { get; set; }
     }
 }

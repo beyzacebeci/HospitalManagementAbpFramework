@@ -49,13 +49,13 @@ namespace HospitalManagement.Hospitals
             var dbContext = await GetDbContextAsync();
 
             return (await GetDbSetAsync())
-                .Include(x => x.Departments)
+                .Include(x => x.HospitalDepartments)
                 .Select(x => new HospitalWithDetails
                 {
                     Id = x.Id,
                     Name = x.Name,
                     CreationTime = x.CreationTime,
-                    DepartmentNames = (from hospitalDepartments in x.Departments
+                    DepartmentNames = (from hospitalDepartments in x.HospitalDepartments
                                      join department in dbContext.Set<Department>() on hospitalDepartments.DepartmentId equals department.Id
                                      select department.Name).ToArray()
                 });
@@ -63,7 +63,7 @@ namespace HospitalManagement.Hospitals
 
         public override Task<IQueryable<Hospital>> WithDetailsAsync()
         {
-            return base.WithDetailsAsync(x => x.Departments);
+            return base.WithDetailsAsync(x => x.HospitalDepartments);
         }
     }
 }

@@ -10,11 +10,7 @@ namespace HospitalManagement.Hospitals
 
 		public Guid DepartmentId { get; protected set; }
 
-        //public Hospital Hospital { get; protected set; }
-        //public Department Department { get; protected set; }
-
-
-
+ 
         /* This constructor is for deserialization / ORM purpose */
         private HospitalDepartment()
 		{

@@ -1,11 +1,11 @@
-using HospitalManagement.Departments;
-using HospitalManagement.Hospitals;
-using HospitalManagement.Web.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HospitalManagement.Hospitals;
+using HospitalManagement.Departments;
+using HospitalManagement.Web.Models;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace HospitalManagement.Web.Pages.Hospitals
 {
@@ -35,7 +35,7 @@ namespace HospitalManagement.Web.Pages.Hospitals
 
         public async Task<IActionResult> OnPostAsync()
         {
-            ValidateModel();
+            //ValidateModel();
 
             var selectedDepartments = Departments.Where(x => x.IsSelected).ToList();
             if (selectedDepartments.Any())

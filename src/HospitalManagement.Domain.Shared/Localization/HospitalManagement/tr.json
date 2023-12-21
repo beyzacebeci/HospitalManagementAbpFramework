@@ -10,6 +10,7 @@
         "Permission:Hospitals": "Hastaneler",
         "Permission:Hospitals.Create": "Yeni hastane olluşturma",
         "Permission:Hospitals.Edit": "Hastaneleri güncelleme",
-        "Permission:Hospitals.Delete": "Hastaneleri silme"
+        "Permission:Hospitals.Delete": "Hastaneleri silme",
+        "Menu:Appointment": "Randevu Al"
     }
 }

@@ -108,11 +108,12 @@ public class HospitalManagementDbContext :
                 b.ToTable(HospitalManagementConsts.DbTablePrefix + "Hospitals", HospitalManagementConsts.DbSchema); 
                 b.ConfigureByConvention(); 
             
-                b.Property(x => x.Name).HasMaxLength(HospitalConsts.MaxNameLength)
+                b.Property(x => x.Name)
+                .HasMaxLength(HospitalConsts.MaxNameLength)
                 .IsRequired();
                    
                 //many-to-many relationship with Department table => HospitalDepartmnets
-                b.HasMany(x=>x.Departments).WithOne().IsRequired();
+                b.HasMany(x=>x.HospitalDepartments).WithOne().HasForeignKey(x => x.HospitalId).IsRequired();
             });
 
             builder.Entity<Department>(b => 
@@ -133,27 +134,27 @@ public class HospitalManagementDbContext :
                     b.HasKey(x=>new{x.HospitalId,x.DepartmentId});
                 
                     //many-to-many configuration
-                    b.HasOne<Hospital>().WithMany(x=>x.Departments).HasForeignKey(x=>x.HospitalId).IsRequired();
+                    b.HasOne<Hospital>().WithMany(x=>x.HospitalDepartments).HasForeignKey(x=>x.HospitalId).IsRequired();
                     b.HasOne<Department>().WithMany().HasForeignKey(x=>x.DepartmentId).IsRequired();
                     b.HasIndex(x=>new{x.HospitalId,x.DepartmentId});
                 });
 
-            builder.Entity<HospitalDepartmentDoctor>(b =>
-            {
-                b.ToTable(HospitalManagementConsts.DbTablePrefix + "HospitalDepartmentDoctors", HospitalManagementConsts.DbSchema);
-                b.ConfigureByConvention();
+            //builder.Entity<HospitalDepartmentDoctor>(b =>
+            //{
+            //    b.ToTable(HospitalManagementConsts.DbTablePrefix + "HospitalDepartmentDoctors", HospitalManagementConsts.DbSchema);
+            //    b.ConfigureByConvention();
            
-                //define composite key
-                b.HasKey(x => new { x.HospitalId, x.DepartmentId,x.DoctorId });
+            //    //define composite key
+            //    b.HasKey(x => new { x.HospitalId, x.DepartmentId,x.DoctorId });
 
-                //many-to-many configuration
-                b.HasOne<Hospital>().WithMany().HasForeignKey(x => x.HospitalId).IsRequired();
-                b.HasOne<Department>().WithMany().HasForeignKey(x => x.DepartmentId).IsRequired();
-                b.HasOne<Doctor>().WithMany().HasForeignKey(x => x.DoctorId).IsRequired();
+            //    //many-to-many configuration
+            //    b.HasOne<Hospital>().WithMany().HasForeignKey(x => x.HospitalId).IsRequired();
+            //    b.HasOne<Department>().WithMany().HasForeignKey(x => x.DepartmentId).IsRequired();
+            //    b.HasOne<Doctor>().WithMany().HasForeignKey(x => x.DoctorId).IsRequired();
             
-                b.HasIndex(x => new { x.HospitalId, x.DepartmentId,x.DoctorId });
+            //    b.HasIndex(x => new { x.HospitalId, x.DepartmentId,x.DoctorId });
 
-            });
+            //});
 
 
 

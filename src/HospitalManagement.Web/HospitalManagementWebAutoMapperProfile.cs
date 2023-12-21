@@ -14,6 +14,7 @@ public class HospitalManagementWebAutoMapperProfile : Profile
         //Define your AutoMapper configuration here for the Web project.
         CreateMap<DepartmentLookupDto, DepartmentViewModel>()
             .Ignore(x => x.IsSelected); 
+       
         CreateMap<HospitalDto, CreateUpdateHospitalDto>(); 
         CreateMap<DoctorDto, CreateUpdateDoctorDto>(); 
         CreateMap<DepartmentDto, CreateUpdateDepartmentDto>();

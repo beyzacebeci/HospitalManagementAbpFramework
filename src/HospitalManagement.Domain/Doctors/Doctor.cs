@@ -22,7 +22,7 @@ namespace HospitalManagement.Doctors
 		{
             /* This constructor is for deserialization / ORM purpose */
 		}
-        public Doctor(Guid id, string name, [CanBeNull] DateTime birthDate, [CanBeNull] string shortBio= null) : base(id) 
+        public Doctor(Guid id, [NotNull] string name, [CanBeNull] DateTime birthDate, [CanBeNull] string shortBio= null) : base(id) 
 		{ 
 			SetName(name);
             BirthDate = birthDate;

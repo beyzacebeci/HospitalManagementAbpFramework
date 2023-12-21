@@ -8,6 +8,7 @@ namespace HospitalManagement.Web.Models
     {
         [HiddenInput] 
         public Guid Id{get;set;}
+        
         public bool IsSelected{get;set;}
        
         [Required]

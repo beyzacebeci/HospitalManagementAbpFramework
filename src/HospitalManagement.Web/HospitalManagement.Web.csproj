@@ -53,8 +53,4 @@
     <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="7.4.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\NewFolder\" />
-  </ItemGroup>
-
 </Project>

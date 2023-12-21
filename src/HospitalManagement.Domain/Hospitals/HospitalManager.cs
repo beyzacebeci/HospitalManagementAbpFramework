@@ -14,38 +14,26 @@ namespace HospitalManagement.Hospitals
     {
         private readonly IHospitalRepository _hospitalRepository;
         private readonly IRepository<Department, Guid> _departmentRepository;
-        private readonly IRepository<Doctor, Guid> _doctorRepository;
 
         public HospitalManager(
             IHospitalRepository hospitalRepository, 
-            IRepository<Department, Guid> departmentRepository,
-            IRepository<Doctor,Guid> doctorRepository)
+            IRepository<Department, Guid> departmentRepository)
         {
             _hospitalRepository = hospitalRepository;
             _departmentRepository = departmentRepository;
-            _doctorRepository = doctorRepository;
         }
 
         public async Task CreateAsync(string name, [CanBeNull] string[] departmentNames)
         {
             var hospital = new Hospital(GuidGenerator.Create(), name);
-
             await SetDepartmentsAsync(hospital, departmentNames);
-
             await _hospitalRepository.InsertAsync(hospital);
         }
 
-        public async Task UpdateAsync(
-            Hospital hospital,
-            string name,
-            [CanBeNull] string[] departmentNames
-        )
-        {
-           
+        public async Task UpdateAsync(Hospital hospital,string name, [CanBeNull] string[] departmentNames)
+        {   
             hospital.SetName(name);
-
             await SetDepartmentsAsync(hospital, departmentNames);
-
             await _hospitalRepository.UpdateAsync(hospital);
         }
 

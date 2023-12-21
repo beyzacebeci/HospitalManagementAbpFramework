@@ -57,14 +57,14 @@ public class HospitalManagementMenuContributor : IMenuContributor
                 order: 2
             ).RequirePermissions(HospitalManagementPermissions.Hospitals.Default)
         );
-                
+
         context.Menu.Items.Insert(
            3,
            new ApplicationMenuItem(
                HospitalManagementMenus.Doctors,
                l["Menu:Appointment"],
                "/Appointments",
-               icon: "fas fa-user-md",
+               icon: "fas fa-clock",
                order: 3
            ).RequirePermissions(HospitalManagementPermissions.Hospitals.Default)
        );

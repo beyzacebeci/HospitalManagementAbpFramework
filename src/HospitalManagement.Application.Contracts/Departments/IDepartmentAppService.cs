@@ -8,13 +8,14 @@ using Volo.Abp.Application.Services;
 
 namespace HospitalManagement.Departments
 {
-    public interface IDepartmentAppService :IApplicationService
+    public interface IDepartmentAppService :
+            ICrudAppService<DepartmentDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateDepartmentDto, CreateUpdateDepartmentDto>
     {
-        Task<PagedResultDto<DepartmentDto>> GetListAsync(DepartmentGetListInput input);
-        Task<DepartmentDto> GetAsync(Guid id);
-        Task CreateAsync(CreateUpdateDepartmentDto input);
-        Task UpdateAsync(Guid id, CreateUpdateDepartmentDto input);
-        Task DeleteAsync(Guid id);
-        Task<ListResultDto<DoctorLookupDto>> GetDoctorLookupAsync();
+        //Task<PagedResultDto<DepartmentDto>> GetListAsync(DepartmentGetListInput input);
+        //Task<DepartmentDto> GetAsync(Guid id);
+        //Task CreateAsync(CreateUpdateDepartmentDto input);
+        //Task UpdateAsync(Guid id, CreateUpdateDepartmentDto input);
+        //Task DeleteAsync(Guid id);
+        //Task<ListResultDto<DoctorLookupDto>> GetDoctorLookupAsync();
     }
 }
